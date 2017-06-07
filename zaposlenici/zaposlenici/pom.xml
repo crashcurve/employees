@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>com.martin.zaposleniciapi.zaposlenici.zaposlenici</name>
+	<name>com.martin.zaposleniciapi.zaposlenici.employee</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

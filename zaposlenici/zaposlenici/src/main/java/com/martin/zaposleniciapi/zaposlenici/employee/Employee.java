@@ -1,9 +1,8 @@
-package com.martin.zaposleniciapi.zaposlenici.zaposlenici;
+package com.martin.zaposleniciapi.zaposlenici.employee;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.martin.zaposleniciapi.zaposlenici.task.Task;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -21,6 +20,8 @@ public class Employee implements Serializable {
     public Employee(){
 
     }
+
+
 
     public Employee(Integer id, String name, String notes) {
         this.id = id;
