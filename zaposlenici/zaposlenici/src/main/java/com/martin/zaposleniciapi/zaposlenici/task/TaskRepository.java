@@ -10,5 +10,5 @@ import java.util.List;
  */
 @Repository
 public interface TaskRepository extends CrudRepository<Task,Integer> {
-        public List<Task> findByEmployeeId(Integer Id);
+        List<Task> findByEmployeeId(Integer employeeId);
 }

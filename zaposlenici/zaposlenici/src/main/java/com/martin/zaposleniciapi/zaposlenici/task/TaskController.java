@@ -17,11 +17,11 @@ public class TaskController {
     private TaskRepository taskRepository;
 
 
-    @RequestMapping(method= RequestMethod.GET, value=("/employees/{id}/tasks"))
-    public List<Task> getAllTasks(@PathVariable Integer id){
-        List<Task> lista = new ArrayList<>();
-        taskRepository.findByEmployeeId(id).forEach(lista::add);
-        return lista;
+    @RequestMapping(method= RequestMethod.GET, value="/employees/{employeeId}/tasks")
+    public @ResponseBody List<Task> getAllTasks(@PathVariable Integer employeeId){
+        List<Task> tasks = new ArrayList<>();
+        taskRepository.findByEmployeeId(employeeId).forEach(tasks::add);
+        return tasks;
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}/tasks/{id}")
