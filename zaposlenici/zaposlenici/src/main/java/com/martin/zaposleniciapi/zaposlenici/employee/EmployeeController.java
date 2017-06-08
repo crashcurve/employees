@@ -17,12 +17,18 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @RequestMapping("/")
+    public String home(){
+        return "home";
+    }
+
     @RequestMapping(method=RequestMethod.GET, value="/employees")
     public @ResponseBody List<Employee> getAllEmployees(){
         List<Employee> lista = new ArrayList<>();
         employeeRepository.findAll().forEach(lista::add);
         return lista;
     }
+
     @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
     public  @ResponseBody Employee getEmployee(@PathVariable Integer id){
         return employeeRepository.findOne(id);
