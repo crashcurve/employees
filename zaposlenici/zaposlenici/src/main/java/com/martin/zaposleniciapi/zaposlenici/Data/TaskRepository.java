@@ -1,5 +1,6 @@
-package com.martin.zaposleniciapi.zaposlenici.task;
+package com.martin.zaposleniciapi.zaposlenici.Data;
 
+import com.martin.zaposleniciapi.zaposlenici.Model.Task;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

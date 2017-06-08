@@ -1,6 +1,7 @@
-package com.martin.zaposleniciapi.zaposlenici.employee;
+package com.martin.zaposleniciapi.zaposlenici.Controller;
 
-import com.martin.zaposleniciapi.zaposlenici.task.Task;
+import com.martin.zaposleniciapi.zaposlenici.Data.EmployeeRepository;
+import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,6 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
-
-    @RequestMapping("/")
-    public String home(){
-        return "home";
-    }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees")
     public @ResponseBody List<Employee> getAllEmployees(){

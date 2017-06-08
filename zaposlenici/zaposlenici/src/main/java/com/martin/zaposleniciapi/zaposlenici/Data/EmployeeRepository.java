@@ -1,10 +1,8 @@
-package com.martin.zaposleniciapi.zaposlenici.employee;
+package com.martin.zaposleniciapi.zaposlenici.Data;
 
-import com.martin.zaposleniciapi.zaposlenici.task.Task;
+import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by Martin on 6/6/2017.

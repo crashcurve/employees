@@ -1,6 +1,6 @@
-package com.martin.zaposleniciapi.zaposlenici.task;
+package com.martin.zaposleniciapi.zaposlenici.Model;
 
-import com.martin.zaposleniciapi.zaposlenici.employee.Employee;
+import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
 
 import javax.persistence.*;
 

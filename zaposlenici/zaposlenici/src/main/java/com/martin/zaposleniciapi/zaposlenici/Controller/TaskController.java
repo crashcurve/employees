@@ -1,6 +1,8 @@
-package com.martin.zaposleniciapi.zaposlenici.task;
+package com.martin.zaposleniciapi.zaposlenici.Controller;
 
-import com.martin.zaposleniciapi.zaposlenici.employee.Employee;
+import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
+import com.martin.zaposleniciapi.zaposlenici.Model.Task;
+import com.martin.zaposleniciapi.zaposlenici.Data.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
