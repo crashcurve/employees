@@ -19,8 +19,6 @@ public class Employee implements Serializable {
 
     }
 
-
-
     public Employee(Integer id, String name, String notes) {
         this.id = id;
         this.name = name;
