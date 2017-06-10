@@ -17,9 +17,10 @@
         <td th:text="${Employee.id}"></td>
         <td th:text="${Employee.name}"></td>
         <td th:text="${Employee.notes}"></td>
-        <td><a th:href="@{/employees/{id}(id=${Employee.id})}" class="btn btn-danger">View</a></td>
+        <td><a th:href="@{/employees/{id}(id=${Employee.id})}">View</a></td>
+        <td><a th:href="@{/employees/delete/{id}(id=${Employee.id})}">Delete</a></td>
     </tr>
 </table>
-<a href="/employees/add" class="btn btn-success">Add Employee</a>
+<a href="/employees/add">Add Employee</a>
 </body>
 </html>

@@ -31,7 +31,7 @@ public class EmployeeController {
     @RequestMapping(method=RequestMethod.GET, value="/employees/add")
     public String addEmployee(Model model){
         model.addAttribute("employee", new Employee());
-        return "AddEmployee";
+        return "ViewEmployee";
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employees")
@@ -46,15 +46,19 @@ public class EmployeeController {
         return "ViewEmployee";
     }
 
-    @RequestMapping(method=RequestMethod.PUT, value="/employees/{id}")
-    public String updateEmployee(@RequestBody Employee employee){
-        employeeRepository.save(employee);
+    @RequestMapping(method=RequestMethod.POST, value="/employees/{id}")
+    public String updateEmployee(@PathVariable("id") Integer id,Employee employee){
+        Employee employeeHelp = employeeRepository.findOne(id);
+        employeeHelp.setName(employee.getName());
+        employeeHelp.setNotes(employee.getNotes());
+        employeeRepository.save(employeeHelp);
         return "redirect:/employees";
     }
 
-    @RequestMapping(method=RequestMethod.DELETE, value="/employees/{id}")
-    public @ResponseBody void deleteEmployee(@PathVariable Integer id){
+    @RequestMapping(method=RequestMethod.GET, value="/employees/delete/{id}")
+    public String deleteEmployee(@PathVariable Integer id){
         employeeRepository.delete(id);
+        return "redirect:/employees";
     }
 
 }
