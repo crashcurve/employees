@@ -5,6 +5,7 @@ import com.martin.zaposleniciapi.zaposlenici.Model.Task;
 import com.martin.zaposleniciapi.zaposlenici.Data.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,10 +21,9 @@ public class TaskController {
 
 
     @RequestMapping(method= RequestMethod.GET, value="/employees/{employeeId}/tasks")
-    public @ResponseBody List<Task> getAllTasks(@PathVariable Integer employeeId){
-        List<Task> tasks = new ArrayList<>();
-        taskRepository.findByEmployeeId(employeeId).forEach(tasks::add);
-        return tasks;
+    public String getAllTasks(@PathVariable Integer employeeId, Model model){
+        model.addAttribute("tasks" , taskRepository.findByEmployeeId(employeeId));
+        return "TasksView";
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}/tasks/{id}")
@@ -47,8 +47,6 @@ public class TaskController {
     public @ResponseBody void deleteTask(@PathVariable Integer id){
         taskRepository.delete(id);
     }
-
-
 
 
 

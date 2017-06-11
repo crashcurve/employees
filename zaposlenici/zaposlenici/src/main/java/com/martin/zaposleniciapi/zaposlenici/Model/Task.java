@@ -3,14 +3,15 @@ package com.martin.zaposleniciapi.zaposlenici.Model;
 import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by i.mihalina on 7.6.2017..
  */
 @Entity
-public class Task {
+public class Task implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
