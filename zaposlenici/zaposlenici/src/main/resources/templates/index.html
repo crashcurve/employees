@@ -1,0 +1,55 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<body>
+<div >
+    <form  method="post" th:action="@{/login}">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>User Login</legend>
+
+            <!-- Text input-->
+            <div >
+                <label for="username">Username</label>
+                <div >
+                    <input id="username" name="username" type="text" placeholder="Username"  required="" />
+
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div >
+                <label for="password">Password</label>
+                <div >
+                    <input id="password" name="password" type="password" placeholder="Password"  required="" />
+
+                </div>
+            </div>
+
+            <!-- Multiple Checkboxes (inline) -->
+            <div>
+                <label for="remember-me"></label>
+                <div class="col-md-4">
+                    <label class="checkbox-inline" for="remember-me-0">
+                        <input type="checkbox" name="remember-me" id="remember-me-0" value="true" />
+                        Remember Me
+                    </label>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div>
+                <label  for="submit"></label>
+                <div >
+                    <input type="submit" id="submit" value="Login" name="submit"  />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+</div>
+</body>
+
+</html>

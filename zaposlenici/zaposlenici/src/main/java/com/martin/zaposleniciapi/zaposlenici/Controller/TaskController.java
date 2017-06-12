@@ -44,13 +44,13 @@ public class TaskController {
     public String addTask (Task task, @PathVariable Integer employeeId) {
         task.setEmployee(new Employee(employeeId, "", ""));
         taskRepository.save(task);
-        return "redirect:/employees";
+        return "redirect:/employees/"+employeeId+"/tasks";
     }
 
     @RequestMapping(method=RequestMethod.GET, value="employees/{employeeId}/tasks/{id}/delete")
     public String  deleteTask(@PathVariable Integer id){
         taskRepository.delete(id);
-        return "redirect:/employees";
+        return "redirect:/employees/";
     }
 
 
