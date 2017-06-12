@@ -27,6 +27,11 @@ public class EmployeeController {
         return "EmployeesView";
     }
 
+    @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
+    public  String getEmployee(@PathVariable Integer id, Model model){
+        model.addAttribute("employee", employeeRepository.findOne(id));
+        return "ViewEmployee";
+    }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees/add")
     public String addEmployee(Model model){
@@ -40,20 +45,6 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
-    public  String getEmployee(@PathVariable Integer id, Model model){
-        model.addAttribute("employee", employeeRepository.findOne(id));
-        return "ViewEmployee";
-    }
-
-    @RequestMapping(method=RequestMethod.POST, value="/employees/{id}")
-    public String updateEmployee(@PathVariable("id") Integer id,Employee employee){
-        Employee employeeHelp = employeeRepository.findOne(id);
-        employeeHelp.setName(employee.getName());
-        employeeHelp.setNotes(employee.getNotes());
-        employeeRepository.save(employeeHelp);
-        return "redirect:/employees";
-    }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees/delete/{id}")
     public String deleteEmployee(@PathVariable Integer id){

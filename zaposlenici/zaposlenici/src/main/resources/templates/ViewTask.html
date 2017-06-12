@@ -1,24 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Employee</title>
+    <title>Task</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 
 </head>
 <body>
-<h1>View employee</h1>
+<h1>View task</h1>
 <div>
-    <form th:object="${employee}" th:action="@{/employees}" action="#" method="post">
+    <form th:object="${task}" th:action="@{/employees/{employeeId}/tasks/(employeeId=${task.employee.id})}" action="#" method="post">
         <input type="hidden" th:field="*{id}"
                placeholder="Id" />
         <input type="text" th:field="*{name}"
                placeholder="Name" />
-        <input type="text" th:field="*{notes}"
+        <input type="text" th:field="*{description}"
                placeholder="Notes" />
         <input type="submit" value="Save"/>
     </form>
-    <td><a th:href="@{/employees/{id}/tasks(id=${employee.id})}">View Employee Tasks</a></td>
 </div>
 </body>
 </html>

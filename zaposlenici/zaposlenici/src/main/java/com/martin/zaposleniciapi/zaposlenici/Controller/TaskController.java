@@ -27,25 +27,30 @@ public class TaskController {
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}/tasks/{id}")
-     public  @ResponseBody Task getTask(@PathVariable Integer id){
-        return taskRepository.findOne(id);
+     public String getTask(@PathVariable Integer id,Model model){
+        model.addAttribute("task",taskRepository.findOne(id));
+        return "ViewTask";
+    }
+
+    @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}/tasks/add")
+    public String addTask(Model model, @PathVariable Integer employeeId){
+        Task task = new Task();
+        task.setEmployee(new Employee(employeeId, "", ""));
+        model.addAttribute("task", task);
+        return "ViewTask";
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employees/{employeeId}/tasks")
-    public @ResponseBody void addTask (@RequestBody Task task, @PathVariable Integer employeeId) {
+    public String addTask (Task task, @PathVariable Integer employeeId) {
         task.setEmployee(new Employee(employeeId, "", ""));
         taskRepository.save(task);
+        return "redirect:/employees";
     }
 
-    @RequestMapping(method=RequestMethod.PUT, value="employees/{employeeId}/tasks/{id}")
-    public @ResponseBody void updateTask(@RequestBody Task task,@PathVariable Integer employeeId, @PathVariable Integer id){
-        task.setEmployee(new Employee(employeeId, "", ""));
-        taskRepository.save(task);
-    }
-
-    @RequestMapping(method=RequestMethod.DELETE, value="employees/{employeeId}/tasks/{id}")
-    public @ResponseBody void deleteTask(@PathVariable Integer id){
+    @RequestMapping(method=RequestMethod.GET, value="employees/{employeeId}/tasks/{id}/delete")
+    public String  deleteTask(@PathVariable Integer id){
         taskRepository.delete(id);
+        return "redirect:/employees";
     }
 
 

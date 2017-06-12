@@ -17,6 +17,8 @@
         <td th:text="${Task.id}"></td>
         <td th:text="${Task.name}"></td>
         <td th:text="${Task.description}"></td>
+        <td><a th:href="@{/employees/{employeeId}/tasks/{id}(id=${Task.id})}">View</a></td>
+        <td><a th:href="@{/employees/{employeeId}/tasks/{id}/delete (id=${Task.id})}">Delete</a></td>
     </tr>
 </table>
 </body>
