@@ -35,7 +35,7 @@ public class Task implements Serializable {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.employee = new Employee(employeeId, "", "");
+        this.employee = new Employee(employeeId, "", "", "", 0, "", "", 0, "", "");
     }
 
     public Integer getId() {

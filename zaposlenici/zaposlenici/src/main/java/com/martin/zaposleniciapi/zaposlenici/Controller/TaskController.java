@@ -35,14 +35,14 @@ public class TaskController {
     @RequestMapping(method=RequestMethod.GET, value="/employees/{employeeId}/tasks/add")
     public String addTask(Model model, @PathVariable Integer employeeId){
         Task task = new Task();
-        task.setEmployee(new Employee(employeeId, "", ""));
+        task.setEmployee(new Employee(employeeId, "", "", "", 0, "", "", 0, "", ""));
         model.addAttribute("task", task);
         return "ViewTask";
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employees/{employeeId}/tasks")
     public String addTask (Task task, @PathVariable Integer employeeId) {
-        task.setEmployee(new Employee(employeeId, "", ""));
+        task.setEmployee(new Employee(employeeId, "", "", "", 0, "", "", 0, "", ""));
         taskRepository.save(task);
         return "redirect:/employees/"+employeeId+"/tasks";
     }
