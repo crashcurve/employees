@@ -9,14 +9,15 @@
 <h1>Employeess</h1>
 <table>
     <tr>
-        <th>Id -</th>
-        <th>Name -</th>
-        <th>Position -</th>
-        <th>Starting Date -</th>
-        <th>Salary -</th>
-        <th>Last Salary Raise -</th>
-        <th>Address -</th>
-        <th>Telephone -</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Starting Date</th>
+        <th>Salary</th>
+        <th>Last Salary Raise</th>
+        <th>Address</th>
+        <th>E-mail</th>
+        <th>Telephone</th>
         <th>Notes</th>
 
     </tr>
@@ -28,6 +29,7 @@
         <td th:text="${Employee.salary}"></td>
         <td th:text="${Employee.lastSalaryRaise}"></td>
         <td th:text="${Employee.address}"></td>
+        <td th:text="${Employee.email}"></td>
         <td th:text="${Employee.telephone}"></td>
         <td th:text="${Employee.notes}"></td>
         <td><a th:href="@{/employees/{id}(id=${Employee.id})}">View</a></td>
