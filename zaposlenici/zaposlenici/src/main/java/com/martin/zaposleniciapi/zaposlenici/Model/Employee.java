@@ -126,4 +126,20 @@ public class Employee implements Serializable {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", startingDate='" + startingDate + '\'' +
+                ", salary=" + salary +
+                ", lastSalaryRaise='" + lastSalaryRaise + '\'' +
+                ", address='" + address + '\'' +
+                ", telephone=" + telephone +
+                ", email='" + email + '\'' +
+                ", notes='" + notes + '\'' +
+                '}';
+    }
 }
