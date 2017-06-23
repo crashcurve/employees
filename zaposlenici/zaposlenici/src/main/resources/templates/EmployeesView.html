@@ -35,8 +35,11 @@
         <td><a th:href="@{/employees/{id}(id=${Employee.id})}">View</a></td>
         <td><a th:href="@{/employees/delete/{id}(id=${Employee.id})}">Delete</a></td>
         <td><a th:href="@{/employees/{employeeId}/tasks/add(employeeId=${Employee.id})}">Add Task</a></td>
+        <td><a th:href="@{/employees/{id}/report/pdf(id=${Employee.id})}">Generate PDF</a></td>
     </tr>
 </table>
 <a href="/employees/add">Add Employee</a>
+<a href="/employees/report/pdf">|EMPLOYEE PDF|</a>
+<a href="/employees/report/xls">|EMPLOYEE XLS|</a>
 </body>
 </html>

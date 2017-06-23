@@ -1,67 +1,131 @@
 package com.martin.zaposleniciapi.zaposlenici.Controller;
 
-import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.transaction.Transactional;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-/**
- * Created by i.mihalina on 20.6.2017..
- */@Controller
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.martin.zaposleniciapi.zaposlenici.Data.EmployeeRepository;
+import com.martin.zaposleniciapi.zaposlenici.Model.Employee;
+
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleXlsExporterConfiguration;
+import net.sf.jasperreports.export.SimpleXlsReportConfiguration;
+
+@Controller
 public class ReportController {
+	
+	@Autowired
+	EmployeeRepository employeeRepository;
 
+	@RequestMapping(method=RequestMethod.GET, value="/employees/{id}/report/pdf")
+	public String generateEmployeesPDF(@PathVariable Integer id)
+			throws IOException, JRException{
+		final InputStream jasperStream = this.getClass().getResourceAsStream("/templates/template_Table.jasper");
+		List<Employee> employeeList = new ArrayList<>();
+		Employee employee = employeeRepository.findOne(id);
+		employeeList.add(employee);
+		
+		String userHomeDirectory = System.getProperty("user.home");
+		String outputFile = userHomeDirectory + File.separatorChar + "JasperTableExample.pdf";
+		
+		final JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(employeeList);
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("ItemDataSource", itemsJRBean);
+		
+		
+		final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperStream, parameters, new JREmptyDataSource());
+		
+		final String fileName = (new Date().getTime() + ".pdf");
+		final File pdfResource = new File(System.getProperty("user.dir") + File.separator + "employees"+ fileName);
+		pdfResource.createNewFile();
+		JasperExportManager.exportReportToPdfFile(jasperPrint, pdfResource.getAbsolutePath());
 
-    @PutMapping("/employees/report")
-    @Transactional
-    public Map<String, String> generateDetailReportEmployee(@RequestBody Employee employee)
-            throws IOException, JRException {
-        final InputStream jasperStream = this.getClass().getResourceAsStream("/jasperreports/employees.jasper");
-        final Map<String, Object> params = new HashMap<>();
-        final ArrayList<EmployeeReportBean> employeesList = new ArrayList<EmployeeReportBean>();
-        final JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
+		
+        return "redirect:/employees";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/employees/report/pdf")
+	public String generateEmployeesPDF()
+			throws IOException, JRException{
+		final InputStream jasperStream = this.getClass().getResourceAsStream("/templates/template_Table.jasper");
+		List<Employee> employeeList = new ArrayList<>();
+		employeeRepository.findAll().forEach(employeeList::add);
+		
+		final JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(employeeList);
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("ItemDataSource", itemsJRBean);
+		
+		
+		final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperStream, parameters, new JREmptyDataSource());
+		
+		final String fileName = (new Date().getTime() + ".pdf");
+		final File pdfResource = new File(System.getProperty("user.dir") + File.separator + "employees"+ fileName);
+		pdfResource.createNewFile();
+		JasperExportManager.exportReportToPdfFile(jasperPrint, pdfResource.getAbsolutePath());
 
+		
+        return "redirect:/employees";
+	}
+	
+	
+	@RequestMapping(method=RequestMethod.GET, value="/employees/report/xls")
+	public String generateEmployeesXLS() throws IOException, JRException{
+		final InputStream jasperStream = this.getClass().getResourceAsStream("/templates/template_Table.jasper");
+		List<Employee> employeeList = new ArrayList<>();
+		employeeRepository.findAll().forEach(employeeList::add);
+		      
+		final JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(employeeList);
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("ItemDataSource", itemsJRBean);
+		
+        final String fileName = (new Date().getTime() + ".xls");
+        
+		final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperStream, parameters, new JREmptyDataSource());
 
-        for (final PaketDaski p : otpremnica.getPaketDaskis()) {
-            final EmployeeReportBean bean = new OtpremnicaReportBean();
-            final List<DaskaReportBean> listaDaski = new ArrayList<DaskaReportBean>();
-        }
-
-        params.put("brojZaposlenika", employee.getId().toString());
-        params.put("ime", employee.getName());
-        params.put("notes", employee.getNotes());
-
-        final JRBeanCollectionDataSource employeesListSource = new JRBeanCollectionDataSource(employeesList);
-        params.put("employeeList", employeesListSource);
-
-        final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
-
-        final String fileName = (new Date().getTime() + ".pdf");
-
-        if (!(new File(System.getProperty("user.dir") + File.separator + "webapps" + File.separator + "ROOT"
-                + File.separator + "content" + File.separator + "otpremnice").exists())) {
-            (new File(System.getProperty("user.dir") + File.separator + "webapps" + File.separator + "ROOT"
-                    + File.separator + "content" + File.separator + "otpremnice")).mkdir();
-        }
-
-        final File pdfResource = new File(System.getProperty("user.dir") + File.separator + "webapps" + File.separator
-                + "ROOT" + File.separator + "content" + File.separator + "otpremnice" + File.separator + fileName);
-        pdfResource.createNewFile();
-        JasperExportManager.exportReportToPdfFile(jasperPrint, pdfResource.getAbsolutePath());
-
-        final Map<String, String> pathToExport = new HashMap<>();
-
-        pathToExport.put("url", File.separator + "content" + File.separator + "otpremnice" + File.separator + fileName);
-        return pathToExport;
-    }
+		JRXlsExporter xlsExporter = new JRXlsExporter();
+        xlsExporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+        xlsExporter.setExporterOutput(new SimpleOutputStreamExporterOutput(System.getProperty("user.dir") + File.separator + "employees"+ fileName));
+        SimpleXlsReportConfiguration xlsReportConfiguration = new SimpleXlsReportConfiguration();
+        xlsReportConfiguration.setOnePagePerSheet(true);
+        xlsReportConfiguration.setRemoveEmptySpaceBetweenRows(false);
+        xlsReportConfiguration.setDetectCellType(true);
+        xlsReportConfiguration.setWhitePageBackground(false);
+        xlsExporter.setConfiguration(xlsReportConfiguration);
+        xlsExporter.exportReport();
+		return "redirect:/employees";
+	}
+	
+	
 }
