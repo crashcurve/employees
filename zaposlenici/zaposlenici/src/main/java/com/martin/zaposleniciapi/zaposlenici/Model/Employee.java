@@ -24,7 +24,7 @@ public class Employee implements Serializable {
     private String lastName;
     private Long oib;
     private String gender;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date birthDate;
     private String birthPlace;
     private String citizenship;
@@ -38,27 +38,27 @@ public class Employee implements Serializable {
     private String inhabitancyPostOffice;
     private String inhabitancyStreet;
     private Integer inhabitancyStreetNumber;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date inhabitancyStartDate;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date inhabitancyEndDate;
     private boolean permitToStayAndWork;
     private String qualification;
     private String title;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date startingDate;
     private String jobName;
     private String contractOfEmployment;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date probationTime;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date internshipDuration;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date internshipDatePassedExam;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date workAbroadTime;
     private String workAbroadPlace;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date temporaryAssignmentTime;
     private String temporaryAssignmentPlace;
     private String temporaryAssignmentCountry;
@@ -68,19 +68,19 @@ public class Employee implements Serializable {
     private boolean workingInDifferentPlaces;
     private String weeklyWorkingTime;
     private String retirementTime;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeFrom;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeTo;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeMaternityFrom;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeMaternityTo;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeParentalFrom;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date idleTimeParentalTo;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date endingDate;
     private String endingReason;
 
@@ -101,7 +101,7 @@ public class Employee implements Serializable {
     private boolean caretakerDuties;
     private String otherEmployersInformation;
     private boolean contractBan;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date contractBanTime;
 
 
