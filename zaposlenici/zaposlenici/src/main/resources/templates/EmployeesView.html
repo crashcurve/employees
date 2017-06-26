@@ -3,43 +3,41 @@
 <head>
     <title>Employees</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
 </head>
 <body>
 <h1>Employeess</h1>
+
+<div>
+    <form th:action="@{/employees/sort}" action="#" method="get">
+        <input type="text" id="name" name="name" th:value="*{name}" />
+        <input type="submit" value="Filter"/>
+        <a href="/employees">Clear Filter</a>
+    </form>
+
+</div>
+
 <table>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Position</th>
+        <th>First Name</th>
+        <th>Last Name</th>
         <th>Starting Date</th>
-        <th>Salary</th>
-        <th>Last Salary Raise</th>
-        <th>Address</th>
-        <th>E-mail</th>
-        <th>Telephone</th>
-        <th>Notes</th>
-
+        <th>oib</th>
     </tr>
     <tr th:each = "Employee : ${employees}">
-        <td th:text="${Employee.id}"></td>
-        <td th:text="${Employee.name}"></td>
-        <td th:text="${Employee.position}"></td>
+        <td th:text="${Employee.firstName}"></td>
+        <td th:text="${Employee.lastName}"></td>
         <td th:text="${Employee.startingDate}"></td>
-        <td th:text="${Employee.salary}"></td>
-        <td th:text="${Employee.lastSalaryRaise}"></td>
-        <td th:text="${Employee.address}"></td>
-        <td th:text="${Employee.email}"></td>
-        <td th:text="${Employee.telephone}"></td>
-        <td th:text="${Employee.notes}"></td>
+        <td th:text="${Employee.oib}"></td>
         <td><a th:href="@{/employees/{id}(id=${Employee.id})}">View</a></td>
         <td><a th:href="@{/employees/delete/{id}(id=${Employee.id})}">Delete</a></td>
-        <td><a th:href="@{/employees/{employeeId}/tasks/add(employeeId=${Employee.id})}">Add Task</a></td>
-        <td><a th:href="@{/employees/{id}/report/pdf(id=${Employee.id})}">Generate PDF</a></td>
     </tr>
 </table>
 <a href="/employees/add">Add Employee</a>
+
+
+
+<!--
 <a href="/employees/report/pdf">|EMPLOYEE PDF|</a>
-<a href="/employees/report/xls">|EMPLOYEE XLS|</a>
+<a href="/employees/report/xls">|EMPLOYEE XLS|</a> -->
 </body>
 </html>

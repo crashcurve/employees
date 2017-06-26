@@ -27,6 +27,12 @@ public class EmployeeController {
         return "EmployeesView";
     }
 
+    @RequestMapping(method=RequestMethod.GET, value="/employees/sort")
+    public String getSortedEmployees(Model model,@RequestParam String name){
+        model.addAttribute("employees",employeeRepository.findByLastName(name));
+        return "EmployeesView";
+    }
+
     @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
     public  String getEmployee(@PathVariable Integer id, Model model){
         model.addAttribute("employee", employeeRepository.findOne(id));
@@ -51,5 +57,7 @@ public class EmployeeController {
         employeeRepository.delete(id);
         return "redirect:/employees";
     }
+
+
 
 }

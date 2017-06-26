@@ -12,27 +12,192 @@
     <form th:object="${employee}" th:action="@{/employees}" action="#" method="post">
         <input type="hidden" th:field="*{id}"
                placeholder="Id" />
-        <input type="text" th:field="*{name}"
-               placeholder="Name" />
-        <input type="text" th:field="*{position}"
-               placeholder="Position" />
-        <input type="text" th:field="*{startingDate}"
-               placeholder="Starting Date" />
-        <input type="text" th:field="*{salary}"
-               placeholder="Salary" />
-        <input type="text" th:field="*{lastSalaryRaise}"
-               placeholder="Last Salary Raise" />
-        <input type="text" th:field="*{address}"
-               placeholder="Address" />
-        <input type="text" th:field="*{email}"
-               placeholder="E-mail" />
-        <input type="text" th:field="*{telephone}"
-               placeholder="Telephone" />
-        <input type="text" th:field="*{notes}"
-               placeholder="Notes" />
+        <label>Name</label>
+        <input type="text" th:field="*{firstName}"
+               placeholder="First Name" />
+        <input type="text" th:field="*{lastName}"
+               placeholder="Last Name" /><br/>
+        <label>Oib</label>
+        <input type="number" th:field="*{oib}"
+               placeholder="Oib" /><br/>
+        <label>Gender</label>
+        <input type="text" th:field="*{gender}"
+               placeholder="Gender" /><br/>
+        <label>Birth date</label>
+        <input type="date" th:field="*{birthDate}"
+               placeholder="Birth Date" /><br/>
+        <label>Birth place</label>
+        <input type="text" th:field="*{birthPlace}"
+               placeholder="Birth Place" /><br/>
+        <label>Citizenship</label>
+        <input type="text" th:field="*{citizenship}"
+               placeholder="Citizenship" /><br/>
+        <label>Residence </label>
+        <input type="text" th:field="*{residencePlace}"
+               placeholder="Residence Place" />
+        <input type="number" th:field="*{residencePostNumber}"
+               placeholder="Post Number" />
+        <input type="text" th:field="*{residencePostOffice}"
+               placeholder="Residence Post Office" />
+        <input type="text" th:field="*{residenceStreet}"
+               placeholder="Residence Street" />
+        <input type="number" th:field="*{residenceStreetNumber}"
+               placeholder="Residence Street Number" /><br/>
+        <label>Inhabitancy</label>
+        <input type="text" th:field="*{inhabitancyPlace}"
+               placeholder="Inhabitancy Place" />
+        <input type="number" th:field="*{inhabitancyPostNumber}"
+               placeholder="Inhabitancy Post Number" />
+        <input type="text" th:field="*{inhabitancyPostOffice}"
+               placeholder="Inhabitancy Post Office" />
+        <input type="text" th:field="*{inhabitancyStreet}"
+               placeholder="Inhabitancy Street" />
+        <input type="number" th:field="*{inhabitancyStreetNumber}"
+               placeholder="Inhabitancy Street Number" />
+        <label>Inhabitancy Start Date</label>
+        <input type="date" th:field="*{inhabitancyStartDate}"
+               placeholder="Inhabitancy Start Date" />
+        <label>Inhabitancy End Date</label>
+        <input type="date" th:field="*{inhabitancyEndDate}"
+               placeholder="Inhabitancy End Date" /><br/>
+        <label>Permit to Stay and Work</label>
+        <input type="checkbox" th:field="*{permitToStayAndWork}"
+               placeholder="Permit to Stay and Work" /><br/>
+        <label>Qualification</label>
+        <input type="text" th:field="*{qualification}"
+               placeholder="Qualification" /><br/>
+        <label>Title</label>
+        <input type="text" th:field="*{title}"
+               placeholder="Title" /><br/>
+        <label>Starting date</label>
+        <input type="date" th:field="*{startingDate}"
+               placeholder="Starting Date" /><br/>
+        <label>Job name</label>
+        <input type="text" th:field="*{jobName}"
+               placeholder="Job Name" /><br/>
+        <label>Contract of employment</label>
+        <input type="text" th:field="*{contractOfEmployment}"
+               placeholder="Contract of Employment" /><br/>
+        <label>Probation Time</label>
+        <input type="date" th:field="*{probationTime}"
+               placeholder="Probation Time" /><br/>
+        <label>Internship duration</label>
+        <input type="date" th:field="*{internshipDuration}"
+               placeholder="Internship Duration" />
+        <label>Internship date of passing exam</label>
+        <input type="date" th:field="*{internshipDatePassedExam}"
+               placeholder="Internship Date Passed" /><br/>
+        <label>Work abroad</label>
+        <input type="date" th:field="*{workAbroadTime}"
+               placeholder="Work abroad duration" />
+        <input type="text" th:field="*{workAbroadPlace}"
+               placeholder="Work abroad place" /><br/>
+        <label>Temporary Assignment</label>
+        <input type="date" th:field="*{temporaryAssignmentTime}"
+               placeholder="Temporary Assignment Time" />
+        <input type="text" th:field="*{temporaryAssignmentPlace}"
+               placeholder="Temporary Assignment Place" />
+        <input type="text" th:field="*{temporaryAssignmentCountry}"
+               placeholder="Temporary Assignment Country" /><br/>
+        <label>Jobs of extended policy time</label>
+        <input type="checkbox" th:field="*{jobsExtendedInsurancePolicyTime}"
+               placeholder="Jobs of extended policy time" /><br/>
+        <label>Jobs permitted after health assessment</label>
+        <input type="checkbox" th:field="*{jobsHealthAssessment}"
+               placeholder="Jobs permitted after health assessment" /><br/>
+        <label>Main work place</label>
+        <input type="text" th:field="*{mainWorkPlace}"
+               placeholder="Main work place" /><br/>
+        <label>Working in different places</label>
+        <input type="checkbox" th:field="*{workingInDifferentPlaces}"
+               placeholder="Working in different places" /><br/>
+        <label>Weekly working time</label>
+        <input type="text" th:field="*{weeklyWorkingTime}"
+               placeholder="Weekly working time" /><br/>
+        <label>Retirement time</label>
+        <input type="text" th:field="*{retirementTime}"
+               placeholder="Retirement time" /><br/>
+        <label>Idle time from</label>
+        <input type="date" th:field="*{idleTimeFrom}"
+               placeholder="Idle time from" />
+        <label>to</label>
+        <input type="date" th:field="*{idleTimeTo}"
+               placeholder="Idle time to" /><br/>
+        <label>Idle maternity time from</label>
+        <input type="date" th:field="*{idleTimeMaternityFrom}"
+               placeholder="Idle  maternity time from" />
+        <label>to</label>
+        <input type="date" th:field="*{idleTimeMaternityTo}"
+               placeholder="Idle  maternity time from" /><br/>
+        <label>idle parental time from</label>
+        <input type="date" th:field="*{idleTimeParentalFrom}"
+               placeholder="Idle parental time from" />
+        <label>to</label>
+        <input type="date" th:field="*{idleTimeParentalTo}"
+               placeholder="Idle  parental time to" /><br/>
+        <label>Ending date</label>
+        <input type="date" th:field="*{endingDate}"
+               placeholder="Ending date" /><br/>
+        <label>Ending reason</label>
+        <input type="text" th:field="*{endingReason}"
+               placeholder="Ending Reason" /><br/><br/><br/>
+
+        <label>Pregnancy</label>
+        <input type="checkbox" th:field="*{pregnancy}"
+               placeholder="Pregnancy" /><br/>
+        <label>Maternity/Paternity</label>
+        <input type="checkbox" th:field="*{maternityORPaternity}"
+               placeholder="Maternity / Paternity" /><br/>
+        <label>Breast Feeding</label>
+        <input type="checkbox" th:field="*{breastFeeding}"
+               placeholder="Breast Feeding" /><br/>
+        <label>Single parent</label>
+        <input type="checkbox" th:field="*{singleParent}"
+               placeholder="Single parent" /><br/>
+        <label>Adoptive parent</label>
+        <input type="checkbox" th:field="*{adoptiveParent}"
+               placeholder="Adoptive parent" /><br/>
+        <label>Professional Illness</label>
+        <input type="checkbox" th:field="*{professionalIllness}"
+               placeholder="Professional illness" /><br/>
+        <label>Injury at Work</label>
+        <input type="checkbox" th:field="*{injuryAtWork}"
+               placeholder="Injury at Work" /><br/>
+        <label>Professional Incapacity to Work</label>
+        <input type="checkbox" th:field="*{professionalIncapacityToWork}"
+               placeholder="Professional incapacity to work" /><br/>
+        <label>Reduced work ability</label>
+        <input type="checkbox" th:field="*{reducedRemainingWorkAbility}"
+               placeholder="Reduced work ability" /><br/>
+        <label>Partly reduced work ability</label>
+        <input type="checkbox" th:field="*{reducedPartlyLostWorkAbility}"
+               placeholder="Partly reduced work ability" /><br/>
+        <label>Danger of reduction of working ability</label>
+        <input type="checkbox" th:field="*{dangerOfReductionWorkAbility}"
+               placeholder="Danger of reduction of working ability" /><br/>
+        <label>Danger of disability</label>
+        <input type="checkbox" th:field="*{dangerOfDisability}"
+               placeholder="Danger of disability" /><br/>
+        <label>Disability</label>
+        <input type="checkbox" th:field="*{disability}"
+               placeholder="Disability" /><br/>
+        <label>Disability pension</label>
+        <input type="checkbox" th:field="*{disabilityPension}"
+               placeholder="Disability pension" /><br/>
+        <label>caretakerDuties</label>
+        <input type="checkbox" th:field="*{caretakerDuties}"
+               placeholder="Caretaker duties" /><br/>
+        <label>Other employers information</label>
+        <input type="text" th:field="*{otherEmployersInformation}"
+               placeholder="Other employers information" /><br/>
+        <label>Contract ban</label>
+        <input type="checkbox" th:field="*{contractBan}"
+               placeholder="Contract ban" />
+        <input type="date" th:field="*{contractBanTime}"
+               placeholder="Contract ban time" /><br/>
         <input type="submit" value="Save"/>
     </form>
-    <td><a th:href="@{/employees/{id}/tasks(id=${employee.id})}">View Employee Tasks</a></td>
+    <td><a th:href="@{/employees/{id}/report/pdf(id=${employee.id})}">Generate PDF</a></td>
 </div>
 </body>
 </html>

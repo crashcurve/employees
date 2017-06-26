@@ -66,7 +66,7 @@ public class ReportController {
 		JasperExportManager.exportReportToPdfFile(jasperPrint, pdfResource.getAbsolutePath());
 
 		
-        return "redirect:/employees";
+        return "redirect:/employees/{id}";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/employees/report/pdf")
