@@ -31,22 +31,22 @@ public class EmployeeController {
         return "EmployeesView";
     }
 
-    @RequestMapping(method=RequestMethod.GET, value="/employees/sort")
-    public String getSortedEmployees(Model model,@RequestParam String name){
-        model.addAttribute("employees",employeeRepository.findByLastName(name));
-        return "EmployeesView";
-    }
-
     @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
     public  String getEmployee(@PathVariable Integer id, Model model){
         model.addAttribute("employee", employeeRepository.findOne(id));
         return "ViewEmployee";
     }
 
+    @RequestMapping(method=RequestMethod.GET, value="/employees/{id}/edit")
+    public  String editEmployee(@PathVariable Integer id, Model model){
+        model.addAttribute("employee", employeeRepository.findOne(id));
+        return "EditEmployee";
+    }
+
     @RequestMapping(method=RequestMethod.GET, value="/employees/add")
     public String addEmployee(Model model){
         model.addAttribute("employee", new Employee());
-        return "ViewEmployee";
+        return "EditEmployee";
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employees")

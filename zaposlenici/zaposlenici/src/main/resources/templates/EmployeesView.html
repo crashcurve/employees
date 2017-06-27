@@ -5,16 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Employeess</h1>
-
-<div>
-    <form th:action="@{/employees/sort}" action="#" method="get">
-        <input type="text" id="name" name="name" th:value="*{name}" />
-        <input type="submit" value="Filter"/>
-        <a href="/employees">Clear Filter</a>
-    </form>
-
-</div>
+<h1>Employees</h1>
 
 <table>
     <tr>
@@ -26,7 +17,8 @@
     <tr th:each = "Employee : ${employees}">
         <td th:text="${Employee.firstName}"></td>
         <td th:text="${Employee.lastName}"></td>
-        <td th:text="${Employee.startingDate}"></td>
+        <td th:if="${Employee.startingDate != null}" th:text="${#dates.format(Employee.startingDate,'dd.MM.yyyy.')}">date</td>
+        <td th:if="${Employee.startingDate == null}" th:text="${Employee.startingDate}">date</td>
         <td th:text="${Employee.oib}"></td>
         <td><a th:href="@{/employees/{id}(id=${Employee.id})}">View</a></td>
         <td><a th:href="@{/employees/delete/{id}(id=${Employee.id})}">Delete</a></td>
