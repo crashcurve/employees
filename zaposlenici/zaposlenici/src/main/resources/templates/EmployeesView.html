@@ -7,6 +7,14 @@
 <body>
 <h1>Employees</h1>
 
+<div>
+    <form th:onchange="submit" th:action="@{/employees/filter}" action="#" method="get">
+    <input type="text" id="name" name="name" th:value="*{name}" />
+    <input type="submit" value="Filter"/>
+    <a href="/employees">Clear Filter</a>
+</form>
+</div>
+
 <table>
     <tr>
         <th>First Name</th>

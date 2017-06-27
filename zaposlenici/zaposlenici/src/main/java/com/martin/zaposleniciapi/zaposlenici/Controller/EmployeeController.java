@@ -31,6 +31,12 @@ public class EmployeeController {
         return "EmployeesView";
     }
 
+    @RequestMapping(method=RequestMethod.GET, value="/employees/filter")
+    public String getFilteredEmployees(Model model,@RequestParam String name) {
+        model.addAttribute("employees", employeeRepository.findByLastNameStartingWith(name));
+        return "EmployeesView";
+    }
+
     @RequestMapping(method=RequestMethod.GET, value="/employees/{id}")
     public  String getEmployee(@PathVariable Integer id, Model model){
         model.addAttribute("employee", employeeRepository.findOne(id));
