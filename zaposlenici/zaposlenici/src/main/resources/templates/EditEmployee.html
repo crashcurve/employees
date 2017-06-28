@@ -4,12 +4,11 @@
     <title>Employee</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-
 </head>
 <body>
 <h1>View employee</h1>
 <div>
-    <form th:object="${employee}" th:action="@{/employees}" action="#" method="post">
+    <form  th:object="${employee}" th:action="@{/employees}" action="#" method="post">
         <input type="hidden" th:field="*{id}"
                placeholder="Id" />
         <label>Name</label>
@@ -20,12 +19,10 @@
         <label>Oib</label>
         <input type="number" th:field="*{oib}"
                placeholder="Oib" /><br/>
-
         <label>Gender</label>
         <select name="gender">
             <option th:each="gender : ${T(com.martin.zaposleniciapi.zaposlenici.Model.Employee.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
         </select><br/>
-
         <label>Birth date</label>
         <input type="text" th:field="*{birthDate}"
                placeholder="Birth Date" /><br/>
@@ -203,5 +200,6 @@
     </form>
 
 </div>
+
 </body>
 </html>

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
 <body>
-<form th:action="@{/registration}" method="get">
-    <button type="Submit">Go To Registration Page</button>
-</form>
-
 <div class="container">
+
+
+
     <form th:action="@{/login}" method="POST">
         <br/>
         <input type="text" id="email" name="email"  th:placeholder="Email"
@@ -20,6 +18,12 @@
         </div>
         <button name="Submit" value="Login" type="Submit" th:text="Login"></button>
     </form>
+
+    <form th:action="@{/registration}" method="get">
+        <button type="Submit">Go To Registration Page</button>
+    </form>
+
 </div>
+
 </body>
 </html>
