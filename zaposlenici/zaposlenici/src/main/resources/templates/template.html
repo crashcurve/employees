@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <title th:text="#{temmplate.head.title}">Travel Warrant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/materialize.min.css}" rel="stylesheet" media="screen, projection" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+<div th:fragment="footer" >
+    <footer class="page-footer orange" style="padding-top: 0px;">
+        <div class="footer-copyright" style="background-color: #ff8500">
+            <div class="container center">
+                &copy; 2017 all rights reserved by ecx.io
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/jquery-3.1.1.js}"></script>
+    <script th:src="@{/js/materialize.min.js}"></script>
+    <script type="text/javascript">
+    </script>
+</div>
+
+</body>
+
+</html>

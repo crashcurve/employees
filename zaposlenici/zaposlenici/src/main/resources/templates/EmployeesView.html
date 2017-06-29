@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Employees</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+<head th:replace="template :: head">
 </head>
+
 <body>
 <h1>Employees</h1>
 
@@ -41,6 +40,8 @@
 <!--
 <a href="/employees/report/pdf">|EMPLOYEE PDF|</a>
 <a href="/employees/report/xls">|EMPLOYEE XLS|</a> -->
-
+<div th:replace="template :: footer" ></div>
+<script type="text/javascript">
+</script>
 </body>
 </html>
