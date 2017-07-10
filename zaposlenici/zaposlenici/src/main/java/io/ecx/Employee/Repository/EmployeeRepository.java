@@ -1,4 +1,4 @@
-package io.ecx.Employee.Data;
+package io.ecx.Employee.Repository;
 
 import java.util.List;
 

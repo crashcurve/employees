@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import io.ecx.Employee.Data.EmployeeRepository;
 import io.ecx.Employee.Model.Employee;
+import io.ecx.Employee.Repository.EmployeeRepository;
 
 /**
  * Created by Martin on 6/6/2017.
