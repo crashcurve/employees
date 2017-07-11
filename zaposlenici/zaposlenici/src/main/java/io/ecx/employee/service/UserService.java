@@ -1,6 +1,6 @@
-package io.ecx.Employee.Service;
+package io.ecx.employee.service;
 
-import io.ecx.Employee.Model.User;
+import io.ecx.employee.model.User;
 
 /**
  * Created by i.mihalina on 16.6.2017..

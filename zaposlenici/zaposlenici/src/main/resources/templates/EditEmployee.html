@@ -20,7 +20,7 @@
                placeholder="Oib" /><br/>
         <label>Gender</label>
         <select name="gender">
-            <option th:each="gender : ${T(io.ecx.Employee.Model.Employee.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
+            <option th:each="gender : ${T(io.ecx.employee.model.Employee.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
         </select><br/>
         <label>Birth date</label>
         <input type="text" th:field="*{birthDate}"
@@ -76,7 +76,7 @@
                placeholder="Job Name" /><br/>
         <label>Contract of employment</label>
         <select name="contractOfEmployment">
-            <option th:each="contract : ${T(io.ecx.Employee.Model.Employee.Contract).values()}" th:value="${contract}" th:text="${contract}"></option>
+            <option th:each="contract : ${T(io.ecx.employee.model.Employee.Contract).values()}" th:value="${contract}" th:text="${contract}"></option>
         </select><br/>
         <label>Probation Time</label>
         <input type="text" th:field="*{probationTime}"

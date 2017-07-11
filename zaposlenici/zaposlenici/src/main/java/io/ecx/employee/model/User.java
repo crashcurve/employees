@@ -1,4 +1,4 @@
-package io.ecx.Employee.Model;
+package io.ecx.employee.model;
 
 import java.util.Set;
 

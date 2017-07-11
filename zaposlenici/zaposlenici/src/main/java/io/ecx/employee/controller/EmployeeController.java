@@ -1,4 +1,4 @@
-package io.ecx.Employee.Controller;
+package io.ecx.employee.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import io.ecx.Employee.Model.Employee;
-import io.ecx.Employee.Repository.EmployeeRepository;
+import io.ecx.employee.model.Employee;
+import io.ecx.employee.repository.EmployeeRepository;
 
 /**
  * Created by Martin on 6/6/2017.

@@ -1,4 +1,4 @@
-package io.ecx.Employee.Controller;
+package io.ecx.employee.controller;
 
 import javax.validation.Valid;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import io.ecx.Employee.Model.User;
-import io.ecx.Employee.Service.UserService;
+import io.ecx.employee.model.User;
+import io.ecx.employee.service.UserService;
 
 /**
  * Created by i.mihalina on 16.6.2017..

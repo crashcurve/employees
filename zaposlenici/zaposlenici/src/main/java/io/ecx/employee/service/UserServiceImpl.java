@@ -1,4 +1,4 @@
-package io.ecx.Employee.Service;
+package io.ecx.employee.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import io.ecx.Employee.Model.Role;
-import io.ecx.Employee.Model.User;
-import io.ecx.Employee.Repository.RoleRepository;
-import io.ecx.Employee.Repository.UserRepository;
+import io.ecx.employee.model.Role;
+import io.ecx.employee.model.User;
+import io.ecx.employee.repository.RoleRepository;
+import io.ecx.employee.repository.UserRepository;
 
 /**
  * Created by i.mihalina on 16.6.2017..

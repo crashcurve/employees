@@ -1,4 +1,4 @@
-package io.ecx.Employee;
+package io.ecx.employee;
 
 import javax.transaction.Transactional;
 

@@ -1,4 +1,4 @@
-package io.ecx.Employee.Model;
+package io.ecx.employee.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
