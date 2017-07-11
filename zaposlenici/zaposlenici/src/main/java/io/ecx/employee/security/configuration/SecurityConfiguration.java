@@ -1,4 +1,4 @@
-package io.ecx.employee.security;
+package io.ecx.employee.security.configuration;
 
 import javax.sql.DataSource;
 
