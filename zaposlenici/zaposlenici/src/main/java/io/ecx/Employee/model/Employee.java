@@ -1,4 +1,4 @@
-package io.ecx.Employee.Model;
+package io.ecx.Employee.model;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.format.annotation.DateTimeFormat;

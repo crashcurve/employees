@@ -1,4 +1,4 @@
-package io.ecx.Employee.Controller;
+package io.ecx.Employee.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import io.ecx.Employee.Model.Employee;
-import io.ecx.Employee.Repository.EmployeeRepository;
+import io.ecx.Employee.model.Employee;
+import io.ecx.Employee.repository.EmployeeRepository;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;

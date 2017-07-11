@@ -1,4 +1,4 @@
-package io.ecx.Employee.Security.Configuration;
+package io.ecx.Employee.Security.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
