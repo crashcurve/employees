@@ -17,7 +17,6 @@ import io.ecx.employee.repository.EmployeeRepository;
 @Controller
 public class EmployeeController
 {
-
     @Autowired
     private EmployeeRepository employeeRepository;
 
